@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="712.0" prefWidth="1269.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.satyam.inventorymanagementsystem.MainController">
+   <children>
+      <TabPane fx:id="tableTabPane" layoutX="241.0" layoutY="25.0" prefHeight="687.0" prefWidth="1029.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="medicineListTab" closable="false" text="Medicines List">
+               <content>
+                  <ScrollPane prefHeight="659.0" prefWidth="1070.0">
+                     <content>
+                        <TableView fx:id="medicineTable" onMouseClicked="#tableRowClicked" prefHeight="656.0" prefWidth="1029.0">
+                          <columns>
+                            <TableColumn fx:id="medicineNameCol" prefWidth="556.8000335693359" text="Name" />
+                            <TableColumn fx:id="medicineQuantityCol" minWidth="0.0" prefWidth="158.39996337890625" text="Quantity" />
+                              <TableColumn fx:id="medicinePriceCol" minWidth="0.0" prefWidth="152.7999267578125" text="Price" />
+                              <TableColumn fx:id="medicineTotalCol" minWidth="0.0" prefWidth="164.00006103515625" text="Total" />
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab fx:id="patientListTab" closable="false" text="Patients List">
+               <content>
+                  <ScrollPane prefHeight="659.0" prefWidth="1070.0">
+                     <content>
+                        <TableView fx:id="patientDetailTable" onMouseClicked="#patientTableRowClicked" prefHeight="656.0" prefWidth="1029.0">
+                           <columns>
+                              <TableColumn fx:id="patientNameCol" prefWidth="449.59996032714844" text="Patient Name" />
+                              <TableColumn fx:id="purchasedDateCol" minWidth="0.0" prefWidth="393.60009765625" text="Date" />
+                              <TableColumn fx:id="patientTotalAmountCol" minWidth="0.0" prefWidth="181.60003662109375" text="Total Amount" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab fx:id="userListTab" closable="false" text="Users List">
+               <content>
+                  <ScrollPane prefHeight="659.0" prefWidth="1064.0">
+                     <content>
+                        <TableView fx:id="userTable" prefHeight="656.0" prefWidth="1029.0">
+                           <columns>
+                              <TableColumn fx:id="usernameCol" prefWidth="550.4000091552734" text="Name" />
+                              <TableColumn fx:id="accessTypeCol" minWidth="0.0" prefWidth="132.0" text="Access Type" />
+                              <TableColumn fx:id="lastLoginCol" minWidth="0.0" prefWidth="356.0" text="Last Login" />
+                           </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <MenuBar prefHeight="26.0" prefWidth="1270.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logout" text="Logout" />
+                  <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="aboutBtn" mnemonicParsing="false" onAction="#about" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane fx:id="userTabPane" layoutX="14.0" layoutY="25.0" prefHeight="643.0" prefWidth="230.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="medicineTab" text="Medicine Menu">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="615.0" prefWidth="254.0">
+                     <children>
+                        <TextField fx:id="medicineNameTxt" layoutX="14.0" layoutY="68.0" prefHeight="26.0" prefWidth="207.0" promptText="Name" />
+                        <TextField fx:id="medicineQuantityTxt" layoutX="16.0" layoutY="105.0" prefHeight="26.0" prefWidth="205.0" promptText="Quantity" />
+                        <TextField fx:id="medicinePriceTxt" layoutX="16.0" layoutY="142.0" prefHeight="26.0" prefWidth="205.0" promptText="Price" />
+                        <Button fx:id="updateMed" layoutX="18.0" layoutY="183.0" mnemonicParsing="false" onAction="#updateMed" prefHeight="26.0" prefWidth="94.0" text="Update" />
+                        <TextField fx:id="searchTxt" layoutX="14.0" layoutY="22.0" promptText="Search" />
+                        <Button fx:id="searchBtn" layoutX="166.0" layoutY="22.0" mnemonicParsing="false" onAction="#search" text="Search" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="8.400000000000006" AnchorPane.topAnchor="22.0" />
+                        <Button layoutX="119.0" layoutY="183.0" mnemonicParsing="false" onAction="#exportMedicineList" prefHeight="26.0" prefWidth="101.0" text="Export" />
+                        <Button layoutX="18.0" layoutY="230.0" mnemonicParsing="false" onAction="#uploadFile" prefHeight="26.0" prefWidth="202.0" text="Uploader" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="medicineTab1" text="Patient Menu">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="615.0" prefWidth="202.0">
+                     <children>
+                        <TextField fx:id="patientNameTxt" layoutX="11.0" layoutY="14.0" prefHeight="26.0" prefWidth="207.0" promptText="Patient Name" />
+                        <Button fx:id="addRecord" layoutX="11.0" layoutY="489.0" mnemonicParsing="false" onAction="#addPatient" prefHeight="26.0" prefWidth="99.0" text="Add Patient" />
+                        <DatePicker fx:id="purchasedDateTxt" layoutX="12.0" layoutY="49.0" prefHeight="26.0" prefWidth="208.0" promptText="Date" />
+                        <ScrollPane layoutX="8.0" layoutY="202.0" prefHeight="275.0" prefWidth="213.0">
+                           <content>
+                              <TableView fx:id="patientMedicineTableList" prefHeight="272.0" prefWidth="211.0">
+                                <columns>
+                                  <TableColumn fx:id="patientMedicineNameCol" prefWidth="153.59999924898148" text="Name" />
+                                  <TableColumn fx:id="patientMedicineQuantityCol" prefWidth="55.99993896484375" text="Quantity" />
+                                </columns>
+                              </TableView>
+                           </content>
+                        </ScrollPane>
+                        <ChoiceBox fx:id="medicineChoicesTxt" layoutX="12.0" layoutY="85.0" prefHeight="26.0" prefWidth="208.0" />
+                        <TextField fx:id="patientMedicineQuantityTxt" layoutX="11.0" layoutY="122.0" prefHeight="26.0" prefWidth="210.0" />
+                        <Button layoutX="12.0" layoutY="162.0" mnemonicParsing="false" onAction="#AddPatientMedicineToList" prefHeight="26.0" prefWidth="209.0" text="Add Medicine" />
+                        <Button layoutX="118.0" layoutY="490.0" mnemonicParsing="false" onAction="#resetPatientData" prefHeight="26.0" prefWidth="104.0" text="Reset" />
+                        <DatePicker fx:id="deleteDateTxt" layoutX="11.0" layoutY="531.0" prefHeight="26.0" prefWidth="131.0" />
+                        <Button fx:id="deleteBtn" layoutX="151.0" layoutY="532.0" mnemonicParsing="false" onAction="#deletePatients" prefHeight="26.0" prefWidth="69.0" text="Delete" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="userTab" text="User Menu">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="615.0" prefWidth="254.0">
+                     <children>
+                        <TextField fx:id="userNameTxt" layoutX="11.0" layoutY="24.0" prefHeight="26.0" prefWidth="207.0" promptText="Name" />
+                        <Button layoutX="11.0" layoutY="132.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="26.0" prefWidth="206.0" text="Update" />
+                        <PasswordField fx:id="passwordTxt" layoutX="12.0" layoutY="58.0" prefHeight="26.0" prefWidth="205.0" promptText="Password" />
+                        <ChoiceBox fx:id="accessTypeTxt" layoutX="11.0" layoutY="95.0" prefHeight="26.0" prefWidth="206.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
